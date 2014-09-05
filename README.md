@@ -1,4 +1,4 @@
-ait
+AIT (Amazon Instance Tagger)
 ===
 
 A quick script I threw together to simplify tagging AWS instances when using the AWS CLI.
