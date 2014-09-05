@@ -1,7 +1,12 @@
 ait
 ===
 
-A quick script to simplify tagging AWS instances. Takes input piped from the aws ec2 describe-instances .
+A quick script to simplify tagging AWS instances. Takes input piped from the aws ec2 describe-instances.
+
+**Requires:**
+
+* jq
+* xargs
 
 **Example:**
 
