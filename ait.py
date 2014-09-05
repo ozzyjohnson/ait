@@ -1,8 +1,7 @@
 #!/usr/bin/env python
-mkdir
+
 import subprocess
 import argparse
-import json
 
 parser = argparse.ArgumentParser()
 parser.add_argument('-t', nargs ='*')
