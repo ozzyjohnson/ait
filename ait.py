@@ -13,14 +13,9 @@ command1 = ["jq", "-r", ".Reservations[].Instances[].InstanceId"]
 # Basic xargs with a replacement string.
 command2 = ["xargs", "-I", "%", "aws", "ec2", "create-tags", "--resources", "%", "--tags"]
 
-# Make a list of lists out of the k:v pairs on the command line.
-kvPairs = []
-for kvPair in args.t:
-        kvPairs.append(kvPair.split(':'))
-
-# Append to the xargs command.
-for pair in kvPairs:
-    command2.append('Key=' + str(pair[0]) + ',' + 'Value=' + str(pair[1]))
+# Prepare and append the command line key:value pairs for adding to the base command.
+tags = ['Key=' + str(j[0]) + ',' + 'Value=' + str(j[1]) for j in [i.split(':') for i in args.t]] 
+command2.extend(tags)
 
 # Pipe everything together and print the result.
 p1 = subprocess.Popen(command1, stdout=subprocess.PIPE)
